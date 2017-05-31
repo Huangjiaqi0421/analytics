@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.memebox.analytics.dao.EventMappingDao">
+
+
+    <select id="getEventMappingsByName"
+            parameterType="String"
+            resultType="com.memebox.analytics.entity.EventMapping">
+        select *
+        from event_mapping
+        WHERE
+        <if test="_parameter!=null">
+            event_name=#{eventName}
+        </if>
+    </select>
+    <select id="getMappingList"
+            resultType="com.memebox.analytics.entity.EventMapping">
+        select *
+        from event_mapping
+    </select>
+
+</mapper>

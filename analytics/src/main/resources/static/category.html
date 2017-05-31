@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>埋点</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<script>
+    function addCategory() {
+        $.post("http://localhost:9000/category/add"
+        ,{eventName:"abc_test",groupName:"123",category:0,description:"js测试接口"},
+            function (data,status) {
+                $("#msg").text(JSON.stringify(data))
+            },"json")}
+    //$("#addCategory").click(addCategory());
+</script>
+
+<button id="addCategory" onclick="addCategory()" type="button" class="btn" >测试埋点类型添加</button>
+<div>
+    <h3>返回结果</h3>
+    <label id="msg" />
+    <script>
+
+    </script>
+</div>
+
+</body>
+
+</html>

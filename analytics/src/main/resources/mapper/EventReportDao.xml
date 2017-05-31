@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.memebox.analytics.dao.EventReportDao">
+
+    <insert id="insertEventReport" useGeneratedKeys="true"
+            parameterType="com.memebox.analytics.entity.EventReport">
+        insert into event_report(event_name,category,property,created_time,user_id,user_token,device_id,platform,channel,model,
+        client_version,system_version,url,refererurl,browser,useragent,system_time,network,extra1,extra2,extra3,extra4,extra5,
+        extra6,extra7,extra8,extra9,extra10,extra11,extra12,extra13,extra14,extra15,extra16,extra17,extra18,extra19,extra20)
+        VALUES  (#{eventName},#{category},#{property},#{createdTime},#{userId},#{userToken},#{deviceId},#{platform}
+        ,#{channel},#{model},#{clientVersion},#{systemVersion},#{url},#{refererurl},#{browser},#{useragent}
+        ,#{systemTime},#{network},#{extra1},#{extra2},#{extra3},#{extra4},#{extra5},#{extra6},#{extra7},#{extra8},#{extra9},
+        #{extra10},#{extra11},#{extra12},#{extra13},#{extra14},#{extra15},#{extra16},#{extra17},#{extra18},
+        #{extra19},#{extra20})
+    </insert>
+</mapper>

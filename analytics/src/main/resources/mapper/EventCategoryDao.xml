@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.memebox.analytics.dao.EventCategoryDao">
+
+    <insert id="insertEventCategory" useGeneratedKeys="true"
+            parameterType="com.memebox.analytics.entity.EventCategory">
+      insert into event_category(event_name,group_name,category,description)
+      VALUES  (#{eventName},#{groupName},#{category},#{description})
+    </insert>
+    <select id="queryAll" parameterType="com.memebox.analytics.entity.EventCategory" resultType="com.memebox.analytics.entity.EventCategory">
+        select seckill_id,name,number,start_time,end_time,create_time
+        from seckill
+        order by create_time desc
+        limit #{offset},#{limit}
+    </select>
+</mapper>
